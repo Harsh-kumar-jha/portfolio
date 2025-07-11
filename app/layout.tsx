@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
+import Navbar from "../components/Navbar";
+// import ScrollAnimator from "../components/ScrollAnimator";
+import MousePerticleEffect from "../components/MousePerticleEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +28,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black dark:bg-black dark:text-white`}
       >
-        {children}
+        <div className="flex min-h-screen">
+          <Navbar />
+          <main className="flex-1 ml-20 relative overflow-hidden">{/* ml-20 to offset the fixed navbar width */}
+            <div className="absolute inset-0 z-0">
+              <MousePerticleEffect />
+            </div>
+            <div className="relative z-10">
+              {children}
+            </div>
+          </main>
+        </div>
       </body>
     </html>
   );
