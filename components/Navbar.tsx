@@ -9,28 +9,18 @@ import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '/about', label: 'About', icon: CircleUser },
-  { href: '/exprience', label: 'Experience', icon: Briefcase },
+  { href: '/experience', label: 'Experience', icon: Briefcase },
   { href: '/projects', label: 'Projects', icon: FolderGit2 },
   { href: '/articles', label: 'Articles', icon: Newspaper },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
-
-// Add custom keyframes for blinking
-const blinkAnimation = {
-  animation: 'blink 2s infinite',
-  '@keyframes blink': {
-    '0%, 100%': { opacity: 1 },
-    '50%': { opacity: 0.4 },
-  },
-};
 
 const Navbar = () => {
   const pathname = usePathname();
 
   return (
     <nav
-      className="fixed left-0 top-0 h-full w-20 z-30 flex flex-col items-center py-8 px-2 gap-4 border-r border-white/10 shadow-xl backdrop-blur-md transition-colors duration-300"
-      style={{ WebkitBackdropFilter: 'blur(16px)' }}
+      className="fixed left-0 top-0 h-full w-20 z-30 flex flex-col items-center py-8 px-2 gap-4 bg-white/10 border-r border-white/20 shadow-lg transition-colors duration-300"
     >
       {/* Neon Glow Logo at the top with blink animation */}
       <div className="mb-8 flex items-center justify-center w-12 h-12 rounded-full bg-transparent group/logo">
@@ -39,7 +29,7 @@ const Navbar = () => {
           alt="HJ Logo"
           width={48}
           height={48}
-          className="object-contain drop-shadow-[0_0_16px_rgba(0,212,255,0.9)] transition-all duration-300 group-hover/logo:drop-shadow-[0_0_32px_rgba(0,212,255,1)] animate-blink"
+          className="object-contain drop-shadow-[0_0_16px_rgba(0,212,255,0.9)] transition-all duration-300 group-hover/logo:drop-shadow-[0_0_32px_rgba(0,212,255,1)] animate-pulse"
           priority
         />
       </div>
